@@ -1,91 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharath | Neon Portfolio</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0b;
-      color: white;
-      text-align: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    h1 {
-      margin: 20px 0;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .hero video {
-      width: 100%;
-      height: 100vh;
-      object-fit: cover;
-    }
+body{
+  background:#05070c;
+  color:#eaffff;
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+}
 
-    .section {
-      padding: 40px 20px;
-    }
+/* PARTICLES CANVAS */
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
 
-    .card {
-      max-width: 600px;
-      margin: 30px auto;
-      background: #111;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.3);
-    }
+/* HEADER */
+header{
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    img {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 15px;
-    }
+header h1{
+  font-family:'Orbitron',sans-serif;
+  color:#00ffe1;
+  text-shadow:0 0 10px #00ffe1;
+}
 
-    video {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 15px;
-    }
-  </style>
+nav a{
+  color:#bbb;
+  margin-left:20px;
+  text-decoration:none;
+}
+
+nav a:hover{
+  color:#00ffe1;
+}
+
+/* HERO */
+.hero{
+  min-height:85vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.hero h2{
+  font-size:3rem;
+  font-family:'Orbitron',sans-serif;
+  text-shadow:0 0 20px #00ffe1;
+}
+
+.hero span{
+  color:#00ffe1;
+}
+
+.hero p{
+  max-width:600px;
+  color:#aaa;
+  margin:20px 0 35px;
+}
+
+/* NEON BUTTON */
+.btn{
+  padding:15px 40px;
+  border-radius:50px;
+  background:transparent;
+  border:2px solid #00ffe1;
+  color:#00ffe1;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 0 20px #00ffe1;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#00ffe1;
+  color:#000;
+  box-shadow:0 0 40px #00ffe1;
+}
+
+/* SECTIONS */
+section{
+  padding:90px 40px;
+  text-align:center;
+}
+
+h3{
+  font-size:2.2rem;
+  margin-bottom:40px;
+  text-shadow:0 0 15px #00ffe1;
+}
+
+/* GLASS CARDS */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
+  border-radius:18px;
+  padding:30px;
+  border:1px solid rgba(0,255,225,0.2);
+  box-shadow:0 0 25px rgba(0,255,225,0.15);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 0 45px rgba(0,255,225,0.6);
+}
+
+/* FOOTER */
+footer{
+  padding:20px;
+  text-align:center;
+  color:#777;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  header{
+    flex-direction:column;
+    gap:10px;
+  }
+  .hero h2{
+    font-size:2.2rem;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO BACKGROUND VIDEO -->
-  <section class="hero">
-    <video autoplay loop muted playsinline>
-      <source src="videos/demo1.mp4" type="video/mp4">
-    </video>
-  </section>
+<canvas id="particles"></canvas>
 
-  <!-- ABOUT SECTION -->
-  <section class="section">
-    <h1>Hello 👋 I'm Bharath</h1>
-    <p>Front-end Developer Portfolio</p>
-  </section>
+<header>
+  <h1>Bharath</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <!-- IMAGE CARD -->
-  <div class="card">
-    <h2>My Design</h2>
-    <p>This is an image from my project</p>
-    <img src="images/photo1.png" alt="Project Image">
+<div class="hero">
+  <h2><span>Neon</span> Developer</h2>
+  <p>Dark UI • Modern effects • Clean animations</p>
+  <a href="#projects" class="btn">Enter Portfolio</a>
+</div>
+
+<section id="about">
+  <h3>About Me</h3>
+  <p style="max-width:700px;margin:auto;color:#aaa;">
+    I build visually striking websites with neon aesthetics,
+    glassmorphism, and interactive effects.
+  </p>
+</section>
+
+<section id="projects">
+  <h3>Projects</h3>
+  <div class="projects">
+    <div class="card">
+      <h4>Neon Portfolio</h4>
+      <p>Ultra dark UI with glowing elements.</p>
+    </div>
+    <div class="card">
+      <h4>Matrix Landing</h4>
+      <p>Cyberpunk hacker-style animation.</p>
+    </div>
+    <div class="card">
+      <h4>GitHub Pages</h4>
+      <p>Static site hosting.</p>
+    </div>
   </div>
+</section>
 
-  <!-- VIDEO CARD -->
-  <div class="card">
-    <h2>My Project Demo</h2>
-    <p>Watch my project video below</p>
+<section id="contact">
+  <h3>Contact</h3>
+  <p style="color:#aaa;">Instagram • YouTube • Discord • Twitter</p>
+</section>
 
-    <video controls muted playsinline>
-      <source src="videos/demo1.mp4" type="video/mp4">
-    </video>
-  </div>
+<footer>
+  © 2026 Bharath
+</footer>
 
-  <footer class="section">
-    <p>© 2025 My Portfolio ❤️</p>
-  </footer>
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
+let particles = [];
+
+for(let i=0;i<120;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    r:Math.random()*2+1,
+    dx:(Math.random()-0.5)*0.6,
+    dy:(Math.random()-0.5)*0.6
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#00ffe1";
+  particles.forEach(p=>{
+    p.x+=p.dx;
+    p.y+=p.dy;
+    if(p.x<0||p.x>canvas.width) p.dx*=-1;
+    if(p.y<0||p.y>canvas.height) p.dy*=-1;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+
+animate();
+window.onresize=()=>{
+  canvas.width=innerWidth;
+  canvas.height=innerHeight;
+};
+</script>
 
 </body>
 </html>
